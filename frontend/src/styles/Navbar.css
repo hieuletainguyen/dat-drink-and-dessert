@@ -1,12 +1,15 @@
 .navbar {
-  background-color: rgba(255, 248, 250, 0.95);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  height: 80px; /* Fixed height for desktop */
 }
 
 .navbar-container {
@@ -32,7 +35,10 @@
 .logo-text {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ff69b4;
+  color: transparent;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
   animation: fadeIn 1s ease-out;
 }
 
@@ -56,7 +62,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #ff69b4;
+  background: var(--gradient-1);
   transition: width 0.3s ease;
 }
 
@@ -80,14 +86,18 @@
 }
 
 .login-btn {
-  background-color: transparent;
-  color: #ff69b4;
-  border: 2px solid #ff69b4;
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              var(--gradient-1) border-box;
+  color: var(--primary);
 }
 
 .signup-btn {
-  background-color: #ff69b4;
-  color: white;
+  background: var(--gradient-1);
+}
+
+.signup-btn:hover {
+  background: var(--gradient-2);
 }
 
 .auth-btn:hover {
@@ -138,8 +148,53 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    height: 60px; /* Smaller height for mobile */
+    padding: 0.5rem 0;
+  }
+
   .navbar-container {
     padding: 0 1rem;
+  }
+
+  .navbar-logo img {
+    height: 30px; /* Smaller logo for mobile */
+  }
+
+  .logo-text {
+    font-size: 1.2rem; /* Smaller text for mobile */
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 60px; /* Match navbar height */
+    right: -100%;
+    height: calc(100vh - 60px); /* Adjust height to account for navbar */
+    width: 100%;
+    background-color: rgba(255, 248, 250, 0.98);
+    flex-direction: column;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .navbar-links.active {
+    right: 0;
+  }
+
+  .auth-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(255, 248, 250, 0.98);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .mobile-menu-btn {
@@ -150,6 +205,7 @@
     padding: 0.5rem;
     position: relative;
     z-index: 100;
+    margin-left: auto;
   }
 
   .mobile-menu-btn span {
@@ -173,28 +229,31 @@
     transform: rotate(-45deg) translate(7px, -6px);
   }
 
-  .navbar-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 70%;
-    background-color: rgba(255, 248, 250, 0.95);
-    flex-direction: column;
-    padding: 80px 2rem;
-    transition: right 0.3s ease;
+  /* Adjust auth buttons for mobile */
+  .auth-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 
-  .navbar-links.active {
-    right: 0;
+  .welcome-text {
+    font-size: 0.9rem;
+  }
+
+  .cart-btn {
+    font-size: 1rem;
+  }
+}
+
+/* Handle landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar-links {
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .auth-buttons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .auth-btn {
-    width: 100%;
+    position: static;
+    padding: 0.5rem;
+    box-shadow: none;
   }
 } 

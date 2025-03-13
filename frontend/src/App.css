@@ -53,3 +53,18 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --primary: #ff69b4;
+  --primary-light: #ffb6d9;
+  --primary-dark: #ff1493;
+  --secondary: #ffa07a;
+  --secondary-light: #ffd4c4;
+  --accent: #9370db;
+  --accent-light: #e6e6fa;
+  --gradient-1: linear-gradient(135deg, #ff69b4 0%, #ffa07a 100%);
+  --gradient-2: linear-gradient(45deg, #ff1493 0%, #ff69b4 50%, #ffb6d9 100%);
+  --gradient-hero: linear-gradient(135deg, #ffe5f4 0%, #fff0e6 100%);
+  --text-dark: #333;
+  --text-light: #666;
+}
