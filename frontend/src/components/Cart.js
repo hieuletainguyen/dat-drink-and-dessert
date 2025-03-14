@@ -1,55 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import React from 'react';
+import { useCart } from '../context/CartContext';
 import '../styles/Cart.css';
 
 function Cart() {
-  const [cartItems, setCartItems] = useState([]);
-  const { user } = useAuth();
-
-  useEffect(() => {
-    if (user) {
-      fetchCartItems();
-    }
-  }, [user]);
-
-  const fetchCartItems = async () => {
-    try {
-      const res = await fetch('http://localhost:5000/api/cart', {
-        credentials: 'include'
-      });
-      const data = await res.json();
-      setCartItems(data);
-    } catch (error) {
-      console.error('Error fetching cart items:', error);
-    }
-  };
-
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const total = cartItems.reduce((sum, item) => sum + (parseFloat(item.price.replace('$', '')) * item.quantity), 0);
 
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className="empty-cart">Your cart is empty</p>
       ) : (
         <>
           <div className="cart-items">
-            {cartItems.map((item) => (
-              <div key={item.productId} className="cart-item">
-                <img src={item.image} alt={item.name} />
-                <div className="item-details">
+            {cartItems.map(item => (
+              <div key={item.id} className="cart-item">
+                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p>Price: ${item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+                  <p className="cart-item-price">{item.price}</p>
+                  <div className="quantity-controls">
+                    <button 
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      className="quantity-btn"
+                    >
+                      -
+                    </button>
+                    <span className="quantity">{item.quantity}</span>
+                    <button 
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      className="quantity-btn"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
+                <button 
+                  onClick={() => removeFromCart(item.id)}
+                  className="remove-btn"
+                >
+                  <i className="fas fa-trash"></i>
+                </button>
               </div>
             ))}
           </div>
           <div className="cart-summary">
-            <h3>Total: ${calculateTotal().toFixed(2)}</h3>
-            <button className="checkout-button">Proceed to Checkout</button>
+            <div className="cart-total">
+              <span>Total:</span>
+              <span>${total.toFixed(2)}</span>
+            </div>
+            <button className="checkout-btn">
+              Proceed to Checkout
+            </button>
           </div>
         </>
       )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
 import '../styles/Navbar.css';
 
 function Navbar() {
@@ -8,6 +9,7 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   const scrollToSection = (sectionId) => {
     // If we're not on home page, navigate to home first
@@ -69,6 +71,7 @@ function Navbar() {
               <span className="welcome-text">Hello, {user.username}!</span>
               <button className="cart-btn" onClick={() => navigate('/cart')}>
                 <i className="fas fa-shopping-cart"></i>
+                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
               </button>
               <button className="auth-btn logout-btn" onClick={handleLogout}>
                 Logout
