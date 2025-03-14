@@ -73,6 +73,16 @@ function Navbar() {
           <img src="/images/candy-logo.png" alt="Sweet Delights" />
           <span className="logo-text">Sweet Delights</span>
         </div>
+
+        <button 
+          className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span>-</span>
+          <span>-</span>
+          <span>-</span>
+        </button>
         
         <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
           <a href="#!" onClick={() => scrollToSection('hero')}>Home</a>
@@ -91,7 +101,7 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="auth-buttons">
+        <div className={`auth-buttons ${user ? 'logged-in' : ''}`}>
           {user ? (
             <>
               <span className="welcome-text">Hello, {user.username}!</span>
@@ -114,15 +124,6 @@ function Navbar() {
             </>
           )}
         </div>
-
-        <button 
-          className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </nav>
   );

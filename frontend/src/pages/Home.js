@@ -94,7 +94,18 @@ function Home() {
               Discover a World of Sweetness and Joy!
             </p>
             <div className="hero-cta">
-              <button className="cta-button">
+              <button 
+                className="cta-button"
+                onClick={() => {
+                  const element = document.getElementById('products');
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
+              >
                 Explore Our Treats
                 <span className="button-sparkle"></span>
               </button>
