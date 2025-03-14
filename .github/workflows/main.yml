@@ -36,9 +36,6 @@ jobs:
       env:
         CI: false
         
-    - name: Configure custom domain
-      run: echo "datdrinkdessert.com" > frontend/build/CNAME
-    
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
