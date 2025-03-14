@@ -13,7 +13,7 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <Router>
+        <Router basename="/dat-drink-and-dessert">
           <div className="App">
             <Navbar />
             <Routes>

@@ -36,37 +36,37 @@ function Home() {
       id: 1,
       name: "Rainbow Lollipops",
       price: "$2.99",
-      image: "/images/lollipop.png"
+      image: process.env.PUBLIC_URL + "/images/lollipop.png"
     },
     {
       id: 2,
       name: "Chocolate Truffles",
       price: "$4.99",
-      image: "/images/truffle.png"
+      image: process.env.PUBLIC_URL + "/images/truffle.png"
     },
     {
       id: 3,
       name: "Cotton Candy",
       price: "$3.99",
-      image: "/images/cotton-candy.png"
+      image: process.env.PUBLIC_URL + "/images/cotton-candy.png"
     },
     {
       id: 4,
       name: "Bubble Tea",
       price: "$5.99",
-      image: "/images/bubble-tea.png"
+      image: process.env.PUBLIC_URL + "/images/bubble-tea.png"
     },
     {
       id: 5,
       name: "Matcha Ice Cream",
       price: "$4.49",
-      image: "/images/matcha-ice-cream.png"
+      image: process.env.PUBLIC_URL + "/images/matcha-ice-cream.png"
     },
     {
       id: 6,
       name: "Fruit Smoothie",
       price: "$4.99",
-      image: "/images/fruit-smoothie.png"
+      image: process.env.PUBLIC_URL + "/images/fruit-smoothie.png"
     }
   ];
 

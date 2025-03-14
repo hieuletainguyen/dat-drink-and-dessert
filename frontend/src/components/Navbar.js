@@ -70,7 +70,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <img src="/images/candy-logo.png" alt="Sweet Delights" />
+          <img src={process.env.PUBLIC_URL + "/images/candy-logo.png"} alt="Sweet Delights" />
           <span className="logo-text">Sweet Delights</span>
         </div>
 
