@@ -277,22 +277,18 @@
 
 .featured-products {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #fff8fa 0%, #fff5f0 100%);
+  background: var(--background-color);
 }
 
 .featured-products h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.5s;
+  margin-bottom: 3rem;
   background: var(--gradient-1);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   position: relative;
+  font-size: 2.5rem;
 }
 
 .products-grid {
@@ -301,6 +297,13 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .about-section {
@@ -637,4 +640,46 @@
   50% {
     opacity: 0.5;
   }
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--input-border);
+}
+
+.featured-products {
+  background: var(--background-color);
+}
+
+.about-section {
+  background-color: var(--card-bg);
+}
+
+.about-section p {
+  color: var(--text-light);
+}
+
+.contact-section {
+  background: linear-gradient(45deg, var(--card-bg) 0%, var(--background-color) 100%);
+}
+
+/* Update loading screen */
+.loading-screen {
+  background: var(--gradient-hero);
+}
+
+/* Update floating candies for better visibility in dark mode */
+.candy {
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+}
+
+/* Update scroll indicator */
+.mouse {
+  border-color: var(--primary);
+}
+
+.wheel {
+  background: var(--primary);
 } 

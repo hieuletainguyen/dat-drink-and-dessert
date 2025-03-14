@@ -6,25 +6,24 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h4>Sweet Delights</h4>
+          <h4>Dat Drink and Dessert</h4>
           <p>Making life sweeter, one candy at a time!</p>
         </div>
         <div className="footer-section">
           <h4>Contact Us</h4>
-          <p>Email: hello@sweetdelights.com</p>
-          <p>Phone: (555) 123-4567</p>
+          <p>Email: datdrinkanddessert@gmail.com</p>
+          <p>Phone: (778) 939-5141</p>
         </div>
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a href="#instagram">Instagram</a>
-            <a href="#facebook">Facebook</a>
-            <a href="#twitter">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61574148623359">Facebook</a>
+            <a href="https://www.instagram.com/dat_drink_dessert/">Instagram</a>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Sweet Delights. All rights reserved.</p>
+        <p>&copy; 2025 Dat Drink and Dessert. All rights reserved.</p>
       </div>
     </footer>
   );

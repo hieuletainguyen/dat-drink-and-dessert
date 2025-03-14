@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
@@ -10,6 +10,22 @@ function Navbar() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartCount } = useCart();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+    localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
+  };
 
   const scrollToSection = (sectionId) => {
     // If we're not on home page, navigate to home first
@@ -63,6 +79,16 @@ function Navbar() {
           <a href="#!" onClick={() => scrollToSection('products')}>Our Treats</a>
           <a href="#!" onClick={() => scrollToSection('about')}>About Us</a>
           <a href="#!" onClick={() => scrollToSection('contact')}>Contact</a>
+          <div className="theme-switch-wrapper">
+            <label className="theme-switch">
+              <input
+                type="checkbox"
+                checked={isDarkMode}
+                onChange={toggleTheme}
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
         </div>
 
         <div className="auth-buttons">

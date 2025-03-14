@@ -18,7 +18,7 @@ function Home() {
     window.addEventListener('scroll', handleScroll);
 
     // Add animation classes after component mounts
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.hero'); 
     hero.classList.add('animate');
 
     return () => {
@@ -49,6 +49,24 @@ function Home() {
       name: "Cotton Candy",
       price: "$3.99",
       image: "/images/cotton-candy.png"
+    },
+    {
+      id: 4,
+      name: "Bubble Tea",
+      price: "$5.99",
+      image: "/images/bubble-tea.png"
+    },
+    {
+      id: 5,
+      name: "Matcha Ice Cream",
+      price: "$4.49",
+      image: "/images/matcha-ice-cream.png"
+    },
+    {
+      id: 6,
+      name: "Fruit Smoothie",
+      price: "$4.99",
+      image: "/images/fruit-smoothie.png"
     }
   ];
 
@@ -69,8 +87,8 @@ function Home() {
       <div className="home">
         <section className="hero" id="hero">
           <div className="hero-content">
-            <h1 className="hero-title" data-text="Welcome to Sweet Delights">
-              Welcome to Sweet Delights
+            <h1 className="hero-title" data-text="Welcome to Dat Drink and Dessert">
+              Welcome to Dat Drink and Dessert
             </h1>
             <p className="hero-subtitle">
               Discover a World of Sweetness and Joy!
@@ -114,7 +132,6 @@ function Home() {
 
         <section className="about-section" id="about">
           <h2>Sweet Moments, Sweet Memories</h2>
-          <p>Bringing smiles with our handcrafted candies since 2010</p>
         </section>
 
         <section className="contact-section" id="contact">
